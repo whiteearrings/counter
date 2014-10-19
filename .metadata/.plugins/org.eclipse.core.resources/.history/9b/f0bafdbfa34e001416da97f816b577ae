@@ -1,0 +1,51 @@
+package com.example.count;
+
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.os.Build;
+
+public class MainActivity extends Activity {
+
+	 private Button newTask;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        newTask = (Button)findViewById(R.id.button1);
+
+        
+    }
+    int ct=0;
+    public void  createTask(View view)
+    {
+    	LinearLayout linearLayout=(LinearLayout) findViewById(R.id.container);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+
+        LinearLayout layout=new LinearLayout(getApplicationContext());
+        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setLayoutParams(params);
+        Button button1=new Button(getApplicationContext());
+        button1.setLayoutParams(params1);
+        button1.setText("button");
+
+
+        layout.addView(button1);
+        linearLayout.addView(layout);
+    }
+}
